@@ -1,16 +1,14 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-import { isNotEmpty, isUUID, length } from 'class-validator';
+import { IsNotEmpty, IsUUID, Length } from 'class-validator';
 
 export class CreateNotificationBody {
-  @isNotEmpty()
-  @isUUID()
+  @IsNotEmpty()
+  @IsUUID()
+  recipientId: string;
+
+  @IsNotEmpty()
+  @Length(5, 240)
   content: string;
 
-  @isNotEmpty()
-  @length(5, 240)
+  @IsNotEmpty()
   category: string;
-
-  @isNotEmpty()
-  recipientId: string;
 }
