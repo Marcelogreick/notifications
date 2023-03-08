@@ -19,5 +19,11 @@
     "strictPropertyInitialization": false,
     "noFallthroughCasesInSwitch": false,
     "noImplicitReturns": false,
+    "paths": {
+      "@application/*": ["./src/application/*"],
+      "@helpers/*": ["./src/helpers/*"],
+      "@infra/*": ["./src/infra/*"],
+      "@test/*": ["./test/*"],
+    }
   }
 }
