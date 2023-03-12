@@ -9,4 +9,24 @@ export class InMemoryNotificationsRepository
   async create(notification: Notification) {
     this.notifications.push(notification);
   }
+
+  async findById(notificationId: string) {
+    return (
+      this.notifications.find(
+        (notification) => notification.id === notificationId,
+      ) ?? null
+    );
+  }
+
+  async save(notification: Notification) {
+    const notificationIndex = this.notifications.findIndex(
+      (notification) => notification.id === notification.id,
+    );
+
+    if (notificationIndex === -1) {
+      throw new Error('Notification not found');
+    }
+
+    this.notifications[notificationIndex] = notification;
+  }
 }
